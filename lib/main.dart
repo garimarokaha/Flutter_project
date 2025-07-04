@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //named parameters
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -34,29 +35,42 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        title: Text('My Title'),
-      ),
+      appBar: AppBar(title: Text('My Title')),
       body: Center(
-        child: Text('Garima Rokaha',
-          style: TextStyle(
-            fontSize: 50
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            spacing: 50,
+            children: [
+              Text('Login to continue', style: TextStyle(fontSize: 30)),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Email',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+
+              TextFormField(
+                obscureText: true ,
+                decoration: InputDecoration(labelText: 'password',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              ElevatedButton(onPressed: (){
+
+                print('Hello World');
+              }, child: Text('login')),
+          ],
           ),
         ),
       ),
     );
-    return Text("Hello World !");
   }
 }
-
-
-
-
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
